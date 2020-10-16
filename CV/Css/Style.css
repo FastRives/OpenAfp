@@ -25,6 +25,50 @@
         z-index: 50000;
     }
 
+    #slide1 {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        }
+        
+        .Nom
+        { 
+            grid-area: 1 / 2 / 2 / 3;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            font-size: calc(1vw + 1.8rem);
+            font-family: 'Aclonica', sans-serif;
+            color: rgb(12, 12, 12);
+            text-shadow: rgb(255, 255, 255) 3px 3px 3px, rgb(255, 255, 255) -3px -3px 3px;
+        }
+        .Titre 
+        { 
+            grid-area: 2 / 2 / 3 / 3; 
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            font-size: calc(1vw + 1.8rem);
+            color: rgb(12, 12, 12);
+            text-shadow: rgb(255, 255, 255) 3px 3px 3px, rgb(255, 255, 255) -3px -3px 3px;
+            text-align: center;
+        }
+        .imgPDP
+        {
+            grid-area: 1 / 3 / 3 / 4; 
+            padding: 10px 25px 25px 150px;
+        }
+
+        .PDP{
+            width: 250px;
+            max-width: 250px;
+            height: 280px;
+            max-height: 280px;
+            border-radius : 51% 49% 45% 55% / 57% 54% 46% 43%;
+        }
+
     .btn-menu
     {
         width: 70px;
@@ -39,6 +83,7 @@
         position: absolute;
         z-index: 20;
         cursor: pointer;
+        transition: all 0.1 0.5s ease-in-out;
     }
 
     /* Ligne à l'interieur du bouton avant/après animation */
@@ -223,43 +268,6 @@
         z-index: 2;
     }
 
-    /* Image de profil du CV */
-
-        #PDP
-        {
-            position: relative;
-            width: 250px;
-            max-width: 250;
-            top: -50px;
-            height: 280px;
-            max-height: 280px;
-            border-radius : 51% 49% 45% 55% / 57% 54% 46% 43% ;
-        }
-
-    #slide1 h1
-    {
-        position: absolute;
-        top : 25px;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        font-size: calc(1vw + 1.8rem);
-        font-family: 'Aclonica', sans-serif;
-        color: rgb(12, 12, 12);
-        text-shadow: rgb(255, 255, 255) 3px 3px 3px, rgb(255, 255, 255) -3px -3px 3px;
-    }
-
-    #slide1 h2
-    {
-        position: absolute;
-        top : 170px;
-        left: 50%;
-        text-align: center;
-        transform: translate(-50%,-50%);
-        font-size: calc(1vw + 1.8rem);
-        color: rgb(12, 12, 12);
-        text-shadow: rgb(255, 255, 255) 3px 3px 3px, rgb(255, 255, 255) -3px -3px 3px;
-    }
-
     #slide2
     {
         position: relative;
@@ -272,16 +280,13 @@
         -webkit-box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.5);
         box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.5);
         display: flex;
+        flex-direction: column;
     }
 
     #slide2 h2
     {
         position: relative;
-        left: 50%;
-        top : 30px;
-        transform: translate(-50%);
-        justify-content: center;
-        align-items: center;
+        text-align: center;
         font-family: verdana, sans-serif;
         font-size: calc(1vw + 1.8rem);
         font-weight: bold;
@@ -297,7 +302,7 @@
     {
         position: absolute;
         left: 50%;
-        top: 120px;
+        top: 17%;
         transform: translate(-50%);
         display: flex;
         justify-content: center;
@@ -312,12 +317,14 @@
     #slide2 .pave_presentation
     {
         display: flex;
-        flex-direction: column;
-        align-items: center;
         position: relative;
-        margin: 120px 0 70px 0;
-        right: 150px;
+        flex-direction: column;
+        justify-self: center;
+        text-align: left;
+        margin: 100px 0 100px 0;
+        padding: 0 10% 0px 10%;
         color: white;
+        width: 100%;
         height: auto;
     }
 
@@ -341,21 +348,12 @@
     {
         margin : 0;
         padding : 0;
-        height : 500px;
+        height : auto;
         width: 100%;
         background: url(../Images/istockphoto-887375642-612x612.jpg) no-repeat center fixed;
         background-size: cover;
         -webkit-box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.5);
         box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-    }
-
-    .slide_inside 
-    {
-        display: flex;
-        position: relative;
-        justify-content: flex-end;
-        right : 60px;
-        top: 60px;
     }
 
 /* Fin Slide parallax */
@@ -386,12 +384,144 @@
 
 /* Fin de création de la scrollbar */
 
-@media only screen and (max-width: 768px) {
+/* Timelane */
+
+    .box-timeline {
+        width: 100%;
+        height: 1800px;
+        position: relative;
+        padding: 250px 0 250px 0;
+    }
+
+    .lignetime {
+        height: 1000px;
+        width: 12px;
+        margin: 0 auto;
+        background: rgb(177, 7, 7);
+    }
+
+    .rond {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: #333;
+        position: absolute;
+        border: 1px solid #000;
+        left: 50%;
+        transform: translate(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+    }
+    /* 1000 - 160 + 80 / 3 =~ 306 */
+    .r1{top: 250px;}
+    .r2{top: 636px;}
+    .r3{top: 942px;}
+    .r4{top: 1250px;}
+
+    .box {
+        color: #333;
+        width: 400px;
+        min-height: 200px;
+        padding: 20px;
+        border-radius: 3px;
+        height: auto;
+        background: #f1f1f1;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .b1 {
+        top: 250px;
+        left: calc(50% - 270px);
+    }
+    .b2 {
+        top: 636px;
+        left: calc(50% + 270px);
+    }
+    .b3 {
+        top: 942px;
+        left: calc(50% - 270px);
+    }
+    .b4 {
+        top: 1250px;
+        left: calc(50% + 270px);
+    }
+
+    .box p {
+        line-height: 20px;
+        font-size: 18px;
+        margin: 10px 0 20px 0;
+    }
+    .btn {
+        display: block;
+        background: midnightblue;
+        padding: 10px;
+        width: 120px;
+        text-align: center;
+        color: #f1f1f1;
+        text-decoration: none;
+        border-radius: 3px;
+        margin-top: 10px;
+    }
+
+@media screen and (max-width: 1000px) {
+
+    .lignetime {
+        position: relative;
+        left: 200px;
+    }
+    .rond {
+        left: calc(50% + 200px);
+    }
+    .box {
+        left: calc(50% - 50px)
+    }
+
+}
+
+/* Fin timelane */
+
+@media only screen and (max-width: 900px) {
     /* Appareils avec une résolution de 768 pixels ou moins */
 
-    #PDP
+    #slide1 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        height: auto;;
+        }
+        
+        .Nom 
+        { 
+            grid-area: 1 / 1 / 2 / 2;
+            padding-top: 20px;
+            padding-bottom: 40px;
+            position: relative;
+            display: flex;
+            font-size: calc(1vw + 1.3rem);
+            font-family: 'Aclonica', sans-serif;
+            color: rgb(12, 12, 12);
+            text-shadow: rgb(255, 255, 255) 3px 3px 3px, rgb(255, 255, 255) -3px -3px 3px;
+            align-items: center;
+         }
+        .Titre 
+        { 
+            grid-area: 2 / 1 / 3 / 2; 
+            font-size: calc(1vw + 1.8rem);
+            color: rgb(12, 12, 12);
+            padding-bottom: 20px;;
+            text-shadow: rgb(255, 255, 255) 3px 3px 3px, rgb(255, 255, 255) -3px -3px 3px;
+        }
+
+    .imgPDP
     {
-        visibility: hidden;
+        display: none;
     }
 
     .container-menu
@@ -418,6 +548,7 @@
         position: absolute;
         z-index: 20;
         cursor: pointer;
+        transition: all 0.1 0.2s ease-in-out;
     }
 
     .ligne
@@ -515,5 +646,19 @@
         left: 72%;
         top: 135%;
     } 
+   }
 
+   @media only screen and (max-width: 320px) {
+
+    .Nom 
+        { 
+            grid-area: 1 / 1 / 2 / 2;
+            Padding: 20px 0 20px 0;
+            font-size: calc(1vw + 1.2rem);
+         }
+
+    .Titre 
+    { 
+        font-size: calc(1vw + 1.3rem);
+    }
    }
