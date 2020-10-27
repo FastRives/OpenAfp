@@ -7,6 +7,7 @@
     const Menu3 = document.getElementById('Menu3');
     const Menu4 = document.getElementById('Menu4');
     const Menu5 = document.getElementById('Menu5');
+    const Menu6 = document.getElementById('Menu6');
 
     btnMenu.addEventListener('click', () => {
         containerMenu.classList.toggle('active');
@@ -72,3 +73,27 @@ Menu4.addEventListener('click', function() {
 Menu5.addEventListener('click', function() {
     smoothScroll('#slide5', 1000);
 })
+Menu6.addEventListener('click', function() {
+    smoothScroll('#slide5', 1000);
+})
+
+
+
+// Progressbar
+$(function() {
+		
+	$('.progressbar').each(function(){
+		var t = $(this);
+		var dataperc = t.attr('data-perc'),
+        barperc = Math.round(dataperc*5.56);
+		t.find('.label').append('<div class="perc"></div>');
+		
+		function perc() {
+			var length = t.find('.bar').css('width'),
+			labelpos = (parseInt(length)-20);
+			t.find('.label').css('left', labelpos);
+		}
+		perc();
+		setInterval(perc, 0); 
+	});
+});
