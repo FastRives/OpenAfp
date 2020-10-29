@@ -1,0 +1,38 @@
+DELIMITER /
+
+CREATE TRIGGER insert_reservation BEFORE INSERT ON reservation 
+	FOR EACH ROW
+    BEGIN
+    DECLARE NbReservation INT; 
+    DECLARE Hot_id INT;
+    DECLARE Cha_id INT;
+    SET Cha_id = new.res_cha_id;
+    SET Hot_id = (SELECT hotel.hot_id FROM hotel JOIN chambre ON chambre.cha_hot_id = hotel.hot_id WHERE chambre.cha_id = Cha_id); 
+    SET NbReservation = (SELECT count(reservation.res_id) FROM reservation JOIN chambre ON reservation.res_cha_id = chambre.cha_id JOIN hotel ON chambre.cha_hot_id = hotel.hot_id WHERE hotel.hot_id = Hot_id);
+    
+    If NbReservation > 10 THEN 
+    	SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = "Impossible d'ajouter une requete car l'hotel posséde déjà 10 réservations.";
+    END IF;
+END /
+
+DELIMITER ;
+
+--------------------
+
+DELIMITER /
+
+CREATE TRIGGER insert_reservation2 BEFORE INSERT ON reservation 
+    FOR EACH ROW 
+    BEGIN
+        DECLARE Cli_id int;
+        DECLARE NbResClient int;
+        SET Cli_id = new.res_cli_id;
+        SET NbResClient = (SELECT count(res_id) FROM reservation JOIN client ON reservation.res_cli_id = client.cli_id WHERE reservation.res_cli_id = Cli_id);
+
+        IF NbResClient > 2 THEN 
+            SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = "Ce Client possède déjà 3 réservations, impossible d'en ajouter une nouvelle.";
+        END IF; 
+
+    END/
+    
+DELIMITER ;

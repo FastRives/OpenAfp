@@ -1,0 +1,6 @@
+Pour implémenter cette règle de gestion je créérai un trigger. 
+Ce trigger ira chercher l'id du customers venant de réaliser la commande, ainsi, une requete obtiendra son pays de résidence.
+De la même manièrere, grace à la liaison entre les tables products et Orders via la table Order Details, nous irons retrouver les ID des produits commandés.
+Avec ces ID, une requete ira récupérer le pays de chaque fournisseur.
+Une fois le trigger ayant récupérer ces deux informations, il ne reste plus qu'à les comparer.
+Si les fournisseurs des produits commandés correspondent au pays du client, alors la commande passe, sinon, la base la rejetera à l'aide d'une erreur SQL.

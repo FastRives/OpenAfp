@@ -1,0 +1,9 @@
+1) 
+DELIMITER |
+
+CREATE PROCEDURE Lst_fournis()
+BEGIN 
+	SELECT fournis.numfou, entcom.numcom FROM fournis JOIN entcom ON fournis.numfou = entcom.numfou; 
+END |
+
+DELIMITER ;

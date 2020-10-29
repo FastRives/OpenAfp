@@ -1,0 +1,49 @@
+1) Numéro de commande du fournisseur 09120 : 
+70 020 et 70 300
+
+2) SELECT fournis.numfou, entcom.numcom FROM fournis JOIN entcom ON fournis.numfou = entcom.numfou; 
+
+3) SELECT fournis.numfou, count(entcom.numcom) FROM fournis JOIN entcom ON fournis.numfou = entcom.numfou GROUP BY fournis.numfou
+
+4) SELECT CODART, LIBART, STKPHY, STKALE, QTEANN FROM produit WHERE STKPHY >= STKALE AND QTEANN > 1000
+
+5) SELECT nomfou, posfou FROM fournis WHERE posfou LIKE "75%" OR posfou LIKE "78%" OR posfou LIKE "92%" OR posfou LIKE "77%" ORDER BY posfou DESC
+
+6) SELECT numcom FROM entcom WHERE datcom LIKE "2018-03%" OR datcom LIKE "2018-04%";
+
+7) SELECT numcom, datcom, obscom FROM entcom WHERE obscom != ""
+
+8) SELECT entcom.numcom, ligcom.QTECDE*ligcom.priuni AS "Prix total" FROM entcom JOIN ligcom ON entcom.numcom = ligcom.numcom GROUP BY entcom.numcom
+
+9) SELECT entcom.numcom, ligcom.QTECDE*ligcom.priuni AS "Prix total" FROM entcom JOIN ligcom ON entcom.numcom = ligcom.numcom WHERE QTECDE <= 1000 AND ligcom.QTECDE*ligcom.priuni > 10000 GROUP BY entcom.numcom
+
+10) SELECT fournis.nomfou, entcom.numcom, entcom.datcom FROM fournis JOIN entcom ON fournis.numfou = entcom.numfou ORDER BY fournis.nomfou
+
+11) SELECT produit.CODART, produit.LIBART, entcom.numcom, entcom.obscom FROM produit JOIN ligcom ON produit.codart = ligcom.codart JOIN entcom ON entcom.numcom = ligcom.numcom WHERE entcom.obscom LIKE "%URGENT%";
+
+12) SELECT fournis.nomfou, fournis.numfou FROM fournis JOIN entcom ON fournis.numfou = entcom.numfou JOIN ligcom ON entcom.numcom = ligcom .numcom JOIN produit ON produit.codart = ligcom.codart GROUP BY fournis.nomfou
+
+13) SELECT entcom.numcom, entcom.datcom FROM entcom JOIN fournis ON fournis.numfou = entcom.numfou WHERE fournis.numfou = (SELECT fournis.numfou FROM fournis JOIN entcom ON entcom.numfou = fournis.numfou WHERE entcom.numcom = "70210");
+
+14) SELECT produit.libart, vente.prix1 FROM produit JOIN vente ON produit.codart = vente.codart WHERE prix1 < (SELECT MIN(prix1) FROM vente JOIN produit ON produit.codart = vente.codart WHERE produit.codart LIKE "R%")
+
+15) SELECT fournis.numfou, fournis.nomfou, produit.libart FROM fournis JOIN vente ON fournis.numfou = vente.numfou JOIN produit ON vente.codart = produit.codart WHERE produit.STKPHY >= 1.5*produit.stkale ORDER BY produit.libart, fournis.nomfou;
+
+16) SELECT fournis.numfou, fournis.nomfou, produit.libart FROM fournis JOIN vente ON fournis.numfou = vente.numfou JOIN produit ON vente.codart = produit.codart WHERE produit.STKPHY >= 1.5*produit.stkale AND vente.delliv <= 30 ORDER BY produit.libart, fournis.nomfou
+
+17) SELECT fournis.nomfou, produit.libart, produit.STKPHY FROM fournis JOIN vente ON fournis.numfou = vente.numfou JOIN produit ON produit.codart = vente.codart ORDER BY produit.STKPHY DESC
+
+18) SELECT produit.codart, produit.libart, sum(ligcom.qtecde), produit.QTEANN FROM produit JOIN ligcom ON ligcom.codart = produit.codart GROUP BY produit.codart HAVING sum(ligcom.qtecde) > (0.90 * produit.QTEANN);
+
+19) 20) X
+
+1 - UPDATE vente SET prix1 = prix1 * 1.04 WHERE numfou = 9180;
+UPDATE vente SET prix2 = prix2 * 1.02 WHERE numfou = 9180;
+
+2 - UPDATE vente SET prix2 = prix1 WHERE prix2 IS NULL;
+
+3 - UPDATE entcom JOIN fournis ON fournis.numfou = entcom.numfou SET entcom.obscom = '*****'  WHERE satisf < 5;
+
+4 - DELETE FROM produit WHERE codart = "l110";
+
+5 - DELETE FROM entcom WHERE numcom NOT IN (SELECT ligcom.numcom FROM ligcom JOIN entcom ON ligcom.numcom = entcom.numcom); 
