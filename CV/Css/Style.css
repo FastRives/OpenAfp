@@ -962,7 +962,6 @@
         background-size: cover;
         -webkit-box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.5);
         box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-        display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(5, 1fr);
         grid-column-gap: 0px;
@@ -971,13 +970,12 @@
 
     .h6-loisir
     {
-        grid-area: 1 / 1 / 2 / 6;
         padding-top : 20px;
     }
 
     .loisir-cont
     {
-        grid-area: 2 / 2 / 6 / 5;
+        margin-top: 25px;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -1024,33 +1022,26 @@
     {
         width: 25%;
         min-width: 240px;
-        grid-area: 2 / 2 / 4 / 3;
     }
     .no2
     {
         width: 25%;
         min-width: 240px;
-        grid-area: 2 / 3 / 4 / 4;
     }
     .no3
     {
         width: 25%;
         min-width: 240px;
-        grid-area: 2 / 4 / 4 / 5;
     }
     .no4
     {
         width: 25%;
         min-width: 240px;
-        grid-area: 4 / 2 / 6 / 3;
     }
     .no5
     {
-        grid-area: 4 / 3 / 6 / 4;
-    }
-    .no6
-    {
-        grid-area: 4 / 4 / 6 / 5;
+        width: 25%;
+        min-width: 240px;
     }
 
 
@@ -1058,6 +1049,175 @@
     {
         font-style: italic;    
     }
+
+    /* Bouton de redirection scroll top  */
+
+    #button {
+        display: inline-block;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        transition: background-color .3s, opacity .5s, visibility .5s;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1000;
+    }
+    
+    .button-1 {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+    }
+    
+    .button-2 {
+        position: absolute;
+        right: 30px;
+        animation: bouton-2 2s infinite;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes bouton-2 {
+        0% {
+            bottom: 0px;
+        }
+        50% {
+            bottom: 8px;
+        }
+        100% {
+            bottom: 0px;
+        }
+    }
+    
+    #button.show {
+        opacity: 1;
+        visibility: visible;
+        cursor: pointer;
+    }
+    
+    #svg-1 {
+        cursor: pointer;
+        shape-rendering: geometricPrecision;
+        fill: url(#svg-gradient-1);
+        filter: url(#svg-shadow-1);
+    }
+    
+    #svg-2 {
+        cursor: pointer;
+        shape-rendering: geometricPrecision;
+        fill: url(#svg-gradient-2);
+        filter: url(#svg-shadow-2);
+    }
+
+    /* fin du bouton scroll */
+
+    /* début du contacter moi */
+    .contact-me 
+    {
+        background-color: #252f31;
+        overflow: hidden;
+        padding-top: 50px;
+        padding-bottom: 70px;
+    }
+    
+    .contact-me h2
+     {
+        color: #fff;
+        margin-left: 40px;
+    }
+    
+    .contact-me p , .contact-me address{
+
+        color: #a2aaaf;
+        margin-left: 40px;
+        margin-top: 35px;
+        font-size: 1.2rem;
+    }
+    .contact-me p strong
+    {
+        color: #d1d6da;
+        font-size: 1,9rem;
+    }
+    .identity
+    {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }    
+    .identity-nom
+    {
+        grid-area: 1 / 1 / 2 / 2;
+        width: 100%;
+    }
+    .identity-prenom
+    {
+        grid-area: 1 / 2 / 2 / 3;
+        width: 100%;
+    }
+    
+    .contact-me .info, .contact-me .form 
+    {
+        width: 45%;
+        float: left;
+    }
+    .contact-me .form
+    {
+        margin-top: 10px;
+        margin-left: 10%;
+    }
+    .contact-me .form label
+    {
+        display: block;
+        color: #d1d6da;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .contact-me .form input[type="text"]
+    {
+        color: #fff;
+        background-color:#4b5557;
+        border: 0;
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+    .contact-me .form input[type="email"]
+    {
+        color: #fff;
+        background-color:#4b5557;
+        border: 0;
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+    .contact-me .form textarea
+    {
+        color: #fff;
+        background-color:#4b5557;
+        border: 0;
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+    #btnSubmitID
+    {
+        background-color: #191e22;
+        color: #fff;
+        padding: 10px 20px;
+        border: 0;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+    .btnsubmit
+    {
+        position: relative;
+        left: 0%;
+    }
+  /* Fin me contacter */
 
 @media screen and (max-width: 1000px) {
 
@@ -1297,6 +1457,10 @@
     {
         padding-bottom : 50px;
     }
+    #button {
+        bottom: 10px;
+        right: 0px;
+    }
 
    }
 
@@ -1373,6 +1537,18 @@
         {
             margin-bottom: 400px;
         }
+
+        .contact-me .form
+        {
+            padding-top: 60px;
+        }
+
+        .contact-me p 
+        {
+            font-size: 1.3rem;
+            margin-top: 10px;
+            word-wrap: break-word;
+        }
         
    }
 
@@ -1388,5 +1564,21 @@
     .Titre 
     { 
         font-size: calc(1vw + 1.3rem);
+    }
+
+    .contact-me .form
+    {
+        margin-top: 60px;
+    }
+
+    .contact-me p 
+        {
+            font-size: 1rem;
+            margin-top: 10px;
+            word-wrap: break-word;
+        }
+    #button {
+        bottom: 10px;
+        right: 220px;
     }
    }

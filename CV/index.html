@@ -12,7 +12,7 @@
 <body>
 
     <!-- Bouton navbar --> 
-    <div class="container-menu">
+    <div id="Container-Menu" class="container-menu">
 
         <div id="btn-menutest" class="btn-menu">
             <div class="ligne"></div>
@@ -42,6 +42,45 @@
         </div>
 
     </div>
+
+    <!-- Bouton rescroll vers le haut -->
+
+    <a id="button">
+        <div class="button-1">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                y="0px" width="50px" height="50px" viewBox="0 0 123.969 123.97" xml:space="preserve">
+                <defs>
+                    <linearGradient id="svg-gradient-1" gradientTransform="rotate(37)">
+                        <stop offset="5%" stop-color="#FC2D01" />
+                        <stop offset="95%" stop-color="#791C11" />
+                    </linearGradient>
+                    <filter id="svg-shadow-1">
+                        <feDropShadow dx="1" dy="1" stdDeviation="1" />
+                    </filter>
+                </defs>
+                <path id="svg-1" d="M120.266,95.584c5.301-5.801,4.801-14.801-0.8-20.301l-47.3-47.4c-2.8-2.8-6.5-4.2-10.2-4.2s-7.399,1.4-10.2,4.2
+        l-47.299,47.3c-5.5,5.5-6.1,14.6-0.8,20.3c5.6,6.101,15.099,6.3,20.9,0.5l30.3-30.3c3.899-3.9,10.2-3.9,14.1,0l30.3,30.3
+        C105.167,101.883,114.667,101.684,120.266,95.584z" />
+            </svg>
+        </div>
+        <div class="button-2">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                        y="0px" width="50px" height="50px" viewBox="0 0 123.969 123.97" xml:space="preserve">
+                        <defs>
+                            <linearGradient id="svg-gradient-2" gradientTransform="rotate(37)">
+                                <stop offset="5%" stop-color="#000000" />
+                                <stop offset="95%" stop-color="#BE1700" />
+                            </linearGradient>
+                            <filter id="svg-shadow-2">
+                                <feDropShadow dx="1" dy="1" stdDeviation="1" />
+                            </filter>
+                        </defs>
+                        <path id="svg-2" d="M120.266,95.584c5.301-5.801,4.801-14.801-0.8-20.301l-47.3-47.4c-2.8-2.8-6.5-4.2-10.2-4.2s-7.399,1.4-10.2,4.2
+            l-47.299,47.3c-5.5,5.5-6.1,14.6-0.8,20.3c5.6,6.101,15.099,6.3,20.9,0.5l30.3-30.3c3.899-3.9,10.2-3.9,14.1,0l30.3,30.3
+            C105.167,101.883,114.667,101.684,120.266,95.584z" />
+                    </svg>
+                </div>
+    </a>
 
     <!-- Slide Parallax  -->
 
@@ -244,6 +283,7 @@
     </div>
 
     <div id="slide5">
+        <!-- Slide jauge compétences -->
         <div class="h5-comp">
             <h2>Compétences</h2>
             <div class="hrs3"></div>
@@ -319,8 +359,44 @@
                 <h4>Film&Series</h4>
                 <p>Anime, manga, series et films en tout genre</p>
             </div>
-            <div class="loisir no6"></div>
         </div>
+    </div>
+
+    <div id="slide7">  
+            <div class="contact-me">
+                <div class="container">
+                  <div class="info">
+                    <h2>Me contacter</h2>
+                    <p class="p-contact">Pour toutes demandes d'informations, de collaborations ou simples prises de contacts, ce formulaire est à votre disposition pour me joindre dans les plus brefs délais. </p>
+                    <address class="p-contact">
+                      24 rue temporaire <br>
+                      Amiens 80000<br>
+                      France<br>
+                    </address>
+                    <p class="p-contact">
+                      <strong>Email :</strong> tom.frassineti@gmail.com <br>
+                      <strong>Téléphone :</strong> 06.47.27.06.73
+                    </p>
+                  </div>
+                    <form class="form" method="POST" action="#">
+                        <div class="identity">
+                            <div class="identity-nom">
+                                <label>Nom : *</label>
+                                <input id="inputNom" type="text" name="Nom" placeholder="Nom">
+                            </div>
+                            <div class="identity-prenom">
+                                <label>Prénom : *</label>
+                                <input id="inputPrenom" type="text" name="Prenom" placeholder="Prenom">
+                            </div>
+                        </div>
+                        <label>Email : *</label>
+                        <input id="inputEmail" type="email" name="Email Adress" placeholder="Email">
+                        <label>Message : *</label>
+                        <textarea id="inputMessage" name="Message" rows="10" cols="80" placeholder="Votre Message"></textarea>
+                        <div class="btnsubmit"><input id="btnSubmitID" type="button" name="submit" value="Envoyer"></div>
+                    </form>
+                </div>
+            </div>
     </div>
 
     <script src="https:////cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
